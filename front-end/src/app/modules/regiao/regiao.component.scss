@@ -1,0 +1,83 @@
+.regiao{
+    height: 95.5vh;
+    background-color: #f2feea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    .regiao-list{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        max-width: 450px;
+        border: 1px solid #00c030;
+        border-radius: 0.5rem;
+        background-color: #dbefe0ce;
+        gap: 2.5rem;
+
+        .regiao-list__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            h2{
+                margin: 0;
+            }
+            a{
+                text-decoration: none;
+                border: 1px solid green;
+                background-color: green;
+                color: #fff;
+                padding: 0.5rem 0.625rem;
+                border-radius: 1.75rem;
+                width: auto;
+                text-align: center;
+            }
+        }
+
+        .regiao-list__body{
+            table{
+                width: 100%;
+                th{
+                    border-bottom: 1px solid #cecece;
+                    padding: 0.5rem;
+                }
+                td{
+                    text-align: center;
+                    border-bottom: 1px solid #cecece;
+                    padding: 0.5rem;
+
+                    button{
+                        border: 1px solid rgb(22, 108, 184);
+                        background-color: rgb(22, 108, 184);
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 1rem;
+                        margin-right: 0.5rem;
+                        font-size: 1rem;
+                        padding: 0.35rem 0.75rem;
+                    }
+                    a{
+                        border: 1px solid rgb(184, 133, 22);
+                        background-color: rgb(184, 133, 22);
+                        color: #fff;
+                        text-align: center;
+                        border-radius: 1rem;
+                        text-decoration: none;
+                        font-size: 1rem;
+                        padding: 0.35rem 0.75rem;
+                    }
+                }
+                tbody{
+                    tr:nth-child(odd) {
+                        background-color: transparent;
+                    }
+                    tr:nth-child(even) {
+                        background-color: #dbefe0ce;
+                        color: white; 
+                    }
+                }
+            }
+        }
+    }
+}

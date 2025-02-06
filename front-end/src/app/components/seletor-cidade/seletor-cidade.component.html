@@ -1,0 +1,4 @@
+<select [value]="valorSelecionado" (change)="valorSelecionado = $event.target.value">
+    <option value="">{{ placeholder }}</option>
+    <option *ngFor="let cidade of cidades" [value]="cidade.uf">{{ cidade.nome }} ({{ cidade.uf }})</option>
+</select>

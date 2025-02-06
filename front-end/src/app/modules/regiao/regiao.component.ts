@@ -1,15 +1,47 @@
-import { Component, OnInit } from '@angular/core';
+// src/app/modules/regiao/regiao.component.ts
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { RegiaoService } from '../../services/regiao.service';
+import { Regiao } from '../../models/regiao.model';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-regiao',
   templateUrl: './regiao.component.html',
   styleUrls: ['./regiao.component.scss']
 })
-export class RegiaoComponent implements OnInit {
+export class RegiaoComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  regioes$: Observable<Regiao[]> | undefined;
+  private regioesSubscription: Subscription;
 
-  ngOnInit() {
+  constructor(private regiaoService: RegiaoService) { }
+
+  ngOnInit(): void {
+    this.carregarRegioes();
+    this.regioesSubscription = this.regiaoService.regioesAtualizadas$.subscribe(() => {
+      this.carregarRegioes();
+    });
   }
 
+  ngOnDestroy(): void {
+    this.regioesSubscription.unsubscribe();
+  }
+
+  carregarRegioes(): void {
+    this.regioes$ = this.regiaoService.getRegioes();
+  }
+
+  ativarDesativar(regiao: Regiao): void {
+    regiao.ativa = !regiao.ativa; // Inverte o valor de ativa ANTES de chamar o serviço
+    this.regiaoService.ativarDesativarRegiao(regiao.id, regiao.ativa).subscribe(
+      (regiaoAtualizada) => {
+        console.log(`Região ${regiao.nome} atualizada com sucesso!`);
+        this.carregarRegioes(); // Recarrega a listagem DEPOIS de atualizar o localStorage
+      },
+      (error) => {
+        console.error('Erro ao atualizar região:', error);
+        regiao.ativa = !regiao.ativa; // Reverte o valor em caso de erro
+      }
+    );
+  }
 }

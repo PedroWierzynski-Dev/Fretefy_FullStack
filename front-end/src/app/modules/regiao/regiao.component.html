@@ -1,3 +1,30 @@
-<p>
-  regiao works!
-</p>
+<div class="regiao"> 
+  <div class="regiao-list">
+    <div class="regiao-list__header">
+      <h2>Listagem de Regiões</h2>
+      <a routerLink="/regiao/cadastro">+ Nova Região</a>
+    </div>
+  
+    <div class="regiao-list__body">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Ativa</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let regiao of regioes$ | async">
+            <td>{{ regiao.nome }}</td>
+            <td>{{ regiao.ativa ? 'Sim' : 'Não' }}</td>
+            <td>
+              <button (click)="ativarDesativar(regiao)">{{ regiao.ativa ? 'Desativar' : 'Ativar' }}</button>
+              <a routerLink="/regiao/editar/{{regiao.id}}">Editar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

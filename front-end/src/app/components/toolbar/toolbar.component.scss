@@ -4,7 +4,7 @@
         display: inline-block;
         padding: 0;
         margin: 0;
-        background-color: #636e72;
+        background-color: #1d1d1d;
         width: 100%;
 
         > li {
@@ -12,15 +12,15 @@
                 display: inline-block;
                 appearance: none;
                 border: none;
-                background-color: #636e72;                
+                background-color: #1d1d1d;                
                 padding: 12px;
                 text-decoration: none;
                 font-weight: 600;
                 color: #fff;
-                border-bottom: 3px solid #636e72;
+                border-bottom: 3px solid #143600;
 
                 &.active {
-                    border-bottom: 3px solid #2d3436;
+                    border-bottom: 3px solid #00c030;
                 }
             }
         }

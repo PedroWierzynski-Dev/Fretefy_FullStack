@@ -1,0 +1,133 @@
+.regiao{
+    height: 95.5vh;
+    background-color: #f2feea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    .regiao-list{
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        max-width: 450px;
+        border: 1px solid #00c030;
+        border-radius: 0.5rem;
+        background-color: #dbefe0ce;
+        gap: 2.5rem;
+
+        .regiao-list__header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            h2{
+                margin: 0;
+            }
+        }
+
+        .regiao-list__body{
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+
+                .form-control{
+                    display: flex;
+                    flex-direction: column;
+
+                    label{
+                        margin-bottom: 0.25rem;
+                        font-weight: 700;
+                        position: relative; 
+                        padding-right: 0.75rem;
+                        &.required::after{
+                            content: "*"; 
+                            color: red; 
+                            position: absolute; 
+                            top: 0;
+                            right: 5px;
+                        }
+                    }
+                    input{
+                        background-color: transparent;
+                        border-bottom: 1px solid #cecece;
+                        border-top: none;
+                        border-left: none;
+                        border-right: none;
+                        margin-bottom: 0.25rem;
+                        padding: 0.25rem;
+                        font-size: 1rem;
+                    }
+                    .error{
+                        color: red;
+                        font-size: 0.75rem;
+                    }
+
+                    input[type="checkbox"]{
+                        display: flex;
+                        width: 15px;
+                    }
+                    .seleciona-cidade{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        .remove-cidade{
+                            border: 1px solid red;
+                            background-color: red;
+                            color: #fff;
+                            padding: 0.5rem 0.625rem;
+                            border-radius: 1.75rem;
+                            width: auto;
+                            text-align: center;
+                            margin-top: 0.5rem;
+                        }
+                    }                        
+                    .add-cidade{
+                        border: 1px solid rgb(34, 34, 196);
+                        background-color: rgb(34, 34, 196);
+                        color: #fff;
+                        padding: 0.5rem 0.625rem;
+                        border-radius: 1.75rem;
+                        width: auto;
+                        text-align: center;
+                        margin-top: 0.5rem;
+                    }
+                }
+                .form-buttons{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-top: 1.5rem;
+                    border-top: 1px solid #cecece;
+
+                    button{
+                        &.save{
+                            border: 1px solid green;
+                            background-color: green;
+                            color: #fff;
+                            padding: 0.5rem 0.625rem;
+                            border-radius: 1.75rem;
+                            width: auto;
+                            text-align: center;
+                        }
+    
+                        &.cancel{
+                            border: 1px solid red;
+                            background-color: red;
+                            color: #fff;
+                            padding: 0.5rem 0.625rem;
+                            border-radius: 1.75rem;
+                            width: auto;
+                            text-align: center;
+                        }
+                        &:disabled {
+                            cursor: not-allowed; 
+                            opacity: 0.5;
+                        }
+    
+                    }
+                }
+            }
+        }
+    }
+}

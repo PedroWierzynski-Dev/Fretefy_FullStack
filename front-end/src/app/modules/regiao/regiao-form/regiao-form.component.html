@@ -1,0 +1,41 @@
+<div class="regiao">
+    <div class="regiao-list">
+        <div class="regiao-list__header">
+            <h2>{{ isEdicao ? 'Editar Região' : 'Cadastrar Região' }}</h2>
+        </div>
+        <div class="regiao-list__body">
+            <form [formGroup]="regiaoForm" (ngSubmit)="onSubmit()">
+                <div class="form-control">
+                    <label class="required" for="nome">Nome</label>
+                    <input type="text" id="nome" formControlName="nome" required>
+                    <div class="error" *ngIf="regiaoForm.get('nome')?.hasError('required') && (regiaoForm.get('nome')?.dirty || regiaoForm.get('nome')?.touched)">
+                        Nome é obrigatório.
+                    </div>
+                </div>
+            
+                <div class="form-control">
+                    <label class="required" for="ativa">Ativa:</label>
+                    <input type="checkbox" id="ativa" formControlName="ativa">
+                </div>
+            
+                <div class="form-control">
+                    <label class="required">Cidades:</label>
+                    <div formArrayName="cidades">
+                    <div class="seleciona-cidade" *ngFor="let cidadeControl of cidadesFormArray.controls; let i = index">
+                        <app-seletor-cidade [formControl]="cidadesFormArray.at(i)" placeholder="Selecione uma cidade"></app-seletor-cidade>
+                        <button type="button" class="remove-cidade" (click)="removerCidade(i)">Remover</button>
+                    </div>
+                    </div>
+                    <button type="button" class="add-cidade" (click)="adicionarCidade()">Adicionar Cidade</button>
+                    <div class="error" *ngIf="regiaoForm.get('cidades')?.hasError('required') && (regiaoForm.get('cidades')?.dirty || regiaoForm.get('cidades')?.touched)">
+                        É necessário selecionar ao menos uma cidade.
+                    </div>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="save" [disabled]="regiaoForm.invalid">Salvar</button>
+                    <button type="button" class="cancel" (click)="cancelar()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
