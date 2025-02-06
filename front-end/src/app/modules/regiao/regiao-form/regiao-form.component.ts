@@ -42,7 +42,7 @@ export class RegiaoFormComponent implements OnInit {
 
     this.route.params.pipe(
     switchMap(params => {
-        this.regiaoId = Number(params['id']); // Converte para número AQUI
+        this.regiaoId = Number(params['id']); 
         if (this.regiaoId) {
         this.isEdicao = true;
         return this.regiaoService.getRegiao(this.regiaoId);
@@ -61,7 +61,7 @@ export class RegiaoFormComponent implements OnInit {
         console.log('Cidades:', regiao.cidades);
         this.setarCidades(regiao.cidades);
     } else {
-        if (this.isEdicao) { // Adicione esta verificação
+        if (this.isEdicao) { 
         console.error(`Região com ID ${this.regiaoId} não encontrada.`);
         this.router.navigate(['/regiao']);
         }

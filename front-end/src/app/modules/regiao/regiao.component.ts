@@ -32,15 +32,15 @@ export class RegiaoComponent implements OnInit, OnDestroy {
   }
 
   ativarDesativar(regiao: Regiao): void {
-    regiao.ativa = !regiao.ativa; // Inverte o valor de ativa ANTES de chamar o serviço
+    regiao.ativa = !regiao.ativa; 
     this.regiaoService.ativarDesativarRegiao(regiao.id, regiao.ativa).subscribe(
       (regiaoAtualizada) => {
         console.log(`Região ${regiao.nome} atualizada com sucesso!`);
-        this.carregarRegioes(); // Recarrega a listagem DEPOIS de atualizar o localStorage
+        this.carregarRegioes(); 
       },
       (error) => {
         console.error('Erro ao atualizar região:', error);
-        regiao.ativa = !regiao.ativa; // Reverte o valor em caso de erro
+        regiao.ativa = !regiao.ativa; 
       }
     );
   }

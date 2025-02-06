@@ -5,7 +5,7 @@ import { RegiaoFormComponent } from './regiao-form/regiao-form.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: 'regiao', pathMatch: 'full' }, // REMOVA ESTA LINHA
-  { path: '', component: RegiaoComponent }, // Rota para o RegiaoComponent
+  { path: '', component: RegiaoComponent },
   { path: 'cadastro', component: RegiaoFormComponent },
   { path: 'editar/:id', component: RegiaoFormComponent }
 ];

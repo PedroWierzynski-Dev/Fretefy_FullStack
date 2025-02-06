@@ -8,9 +8,7 @@ import { Cidade } from '../models/cidade.model';
 })
 export class CidadeService {
 
-  private apiUrl = 'api/cidades'; // Ajuste a URL da API
-  // private apiUrl = 'http://servicodados.ibge.gov.br/api/v1/localidades/municipios'; //Tomei a liberdade de usar a api do IBGE para trazer as cidades
-
+  private apiUrl = 'api/cidades'; 
   constructor(private http: HttpClient) { }
 
   getCidades(): Observable<Cidade[]> {
